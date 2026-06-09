@@ -1,0 +1,231 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "IBM Plex Serif", ui-serif, Georgia, serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --color-paper: #faf8f5;
+  --color-paper-dark: #f0ebe3;
+  --color-ink: #1c1917;
+  --color-ink-muted: #57534e;
+  --color-accent: #0f766e;
+  --color-accent-soft: #ccfbf1;
+  --color-border: #e7e5e4;
+  --color-card: #ffffff;
+  --color-code-bg: #292524;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-paper text-ink antialiased;
+    font-family: var(--font-sans);
+  }
+}
+
+@layer components {
+  .prose-guide {
+    @apply max-w-none text-ink leading-relaxed;
+    font-family: var(--font-serif);
+  }
+
+  .prose-guide h1 {
+    @apply mb-6 text-3xl font-semibold tracking-tight text-ink;
+    font-family: var(--font-sans);
+  }
+
+  .prose-guide h2 {
+    @apply mt-10 mb-4 border-b border-border pb-2 text-xl font-semibold text-ink;
+    font-family: var(--font-sans);
+  }
+
+  .prose-guide h3 {
+    @apply mt-8 mb-3 text-lg font-semibold text-ink;
+    font-family: var(--font-sans);
+  }
+
+  .prose-guide p {
+    @apply mb-4 text-ink-muted;
+  }
+
+  .prose-guide ul,
+  .prose-guide ol {
+    @apply mb-4 ml-5 list-outside text-ink-muted;
+  }
+
+  .prose-guide ul {
+    @apply list-disc;
+  }
+
+  .prose-guide ol {
+    @apply list-decimal;
+  }
+
+  .prose-guide li {
+    @apply mb-1;
+  }
+
+  .prose-guide a {
+    @apply font-medium text-accent underline decoration-accent/30 underline-offset-2 hover:decoration-accent;
+  }
+
+  .prose-guide strong {
+    @apply font-semibold text-ink;
+  }
+
+  .prose-guide code {
+    @apply rounded bg-paper-dark px-1.5 py-0.5 text-sm text-ink;
+    font-family: var(--font-mono);
+  }
+
+  .prose-guide pre.code-block {
+    @apply relative mb-4 overflow-x-auto rounded-xl border border-stone-700/80 bg-code-bg p-4 text-sm text-stone-100;
+    font-family: var(--font-mono);
+  }
+
+  .prose-guide .shiki-block {
+    @apply relative mb-4;
+  }
+
+  .prose-guide .shiki-block[data-language] {
+    @apply pt-10;
+  }
+
+  .prose-guide .shiki-block[data-language]::before {
+    content: attr(data-language);
+    @apply absolute top-0 left-0 z-10 rounded-br-lg rounded-tl-xl border-b border-r border-stone-700/80 bg-stone-800/90 px-3 py-1.5 text-[0.65rem] font-semibold uppercase tracking-wider text-stone-400;
+    font-family: var(--font-sans);
+  }
+
+  .prose-guide .shiki-block pre {
+    @apply mb-0 overflow-x-auto rounded-xl border border-stone-700/80 bg-[#24292e] p-4 text-sm;
+    font-family: var(--font-mono);
+  }
+
+  .prose-guide .shiki-block code {
+    @apply block bg-transparent p-0 text-[0.8125rem] leading-6;
+    font-family: var(--font-mono);
+  }
+
+  .prose-guide .shiki-block .line {
+    @apply min-h-6;
+  }
+
+  .prose-guide pre code {
+    @apply block bg-transparent p-0 text-[0.8125rem] leading-6 text-inherit;
+    font-family: var(--font-mono);
+  }
+
+  .prose-guide table {
+    @apply mb-6 w-full border-collapse text-sm;
+    font-family: var(--font-sans);
+  }
+
+  .prose-guide th {
+    @apply border border-border bg-paper-dark px-3 py-2 text-left font-semibold text-ink;
+  }
+
+  .prose-guide td {
+    @apply border border-border px-3 py-2 text-ink-muted;
+  }
+
+  .prose-guide hr {
+    @apply my-8 border-border;
+  }
+
+  .prose-guide blockquote {
+    @apply my-4 border-l-4 border-accent pl-4 text-ink-muted italic;
+  }
+
+  .mermaid-diagram svg {
+    @apply mx-auto max-w-full;
+  }
+
+  .diagram-zoom-expanded--svg {
+    @apply flex items-start justify-center;
+  }
+
+  .diagram-zoom-expanded--svg svg {
+    @apply h-auto max-w-none flex-none;
+  }
+
+  .diagram-zoom-expanded--html .diagram-zoom-html-content {
+    @apply mx-auto w-full max-w-3xl;
+  }
+
+  .diagram-zoom-expanded--html .max-w-md {
+    max-width: 36rem;
+  }
+
+  .diagram-zoom-range {
+    writing-mode: vertical-lr;
+    direction: rtl;
+    width: 1.25rem;
+    height: 9rem;
+    accent-color: var(--color-accent);
+    cursor: pointer;
+  }
+
+  .diagram-zoom-range:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  .compare-code.shiki-block {
+    @apply relative;
+  }
+
+  .compare-code.shiki-block[data-language] {
+    @apply pt-10;
+  }
+
+  .compare-code.shiki-block[data-language]::before {
+    content: attr(data-language);
+    @apply absolute top-0 left-0 z-10 rounded-br-lg rounded-tl-xl border-b border-r border-stone-700/80 bg-stone-800/90 px-3 py-1.5 text-[0.65rem] font-semibold uppercase tracking-wider text-stone-400;
+    font-family: var(--font-sans);
+  }
+
+  .compare-code.shiki-block pre {
+    @apply m-0 overflow-x-auto bg-transparent p-4 text-[0.8125rem] leading-6;
+    font-family: var(--font-mono);
+  }
+
+  .compare-code.shiki-block::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .compare-code.shiki-block::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-stone-600/80;
+  }
+
+  .compare-code.shiki-block code {
+    @apply block bg-transparent p-0 text-inherit;
+    font-family: var(--font-mono);
+  }
+
+  .code-sample-fullscreen-scroll {
+    scrollbar-color: rgb(87 83 78 / 0.8) transparent;
+  }
+
+  .code-sample-fullscreen-scroll::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  .code-sample-fullscreen-scroll::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-stone-600/80;
+  }
+
+  .auth-markmap .markmap a {
+    @apply text-accent underline decoration-accent/40 underline-offset-2;
+  }
+
+  .auth-markmap .markmap-foreign {
+    font-family: var(--font-sans);
+  }
+}
