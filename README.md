@@ -2,7 +2,7 @@
 
 A practical guide to **authentication** and **authorization** — available as markdown docs and a Next.js site.
 
-Created by **[Serhii Kucherenko](https://github.com/serhii-kucherenko)**.
+**Live site:** [authorization-guide.vercel.app](https://authorization-guide.vercel.app)
 
 ## What's inside
 
@@ -90,7 +90,3 @@ Markdown files live in `docs/` and are rendered at `/docs/*`. Edit the markdown 
 ## Contributing
 
 Keep explanations plain, include examples, and always list pros and cons. Issues and pull requests welcome.
-
----
-
-Made by [Serhii Kucherenko](https://github.com/serhii-kucherenko).
